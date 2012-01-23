@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="main_window">
+    <property name="width_request">330</property>
+    <property name="height_request">150</property>
+    <property name="visible">True</property>
+    <property name="title" translatable="yes">Vokabel-Trainer</property>
+    <property name="window_position">center</property>
+    <signal name="destroy" handler="on_trainer_destroy"/>
+    <child>
+      <object class="GtkFixed" id="fixed">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkLabel" id="question">
+            <property name="width_request">150</property>
+            <property name="height_request">21</property>
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="x">16</property>
+            <property name="y">24</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="suggestion">
+            <property name="width_request">150</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">●</property>
+          </object>
+          <packing>
+            <property name="x">12</property>
+            <property name="y">60</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="answer">
+            <property name="width_request">151</property>
+            <property name="height_request">22</property>
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="x">14</property>
+            <property name="y">101</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="enter">
+            <property name="label">ok!</property>
+            <property name="width_request">45</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_enter_clicked"/>
+          </object>
+          <packing>
+            <property name="x">170</property>
+            <property name="y">60</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="middle">
+            <property name="label" translatable="yes">mittel</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">easy</property>
+            <signal name="clicked" handler="on_middle_clicked"/>
+          </object>
+          <packing>
+            <property name="x">230</property>
+            <property name="y">46</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="hard">
+            <property name="label" translatable="yes">schwer</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">easy</property>
+            <signal name="clicked" handler="on_hard_clicked"/>
+          </object>
+          <packing>
+            <property name="x">230</property>
+            <property name="y">75</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="edit">
+            <property name="label" translatable="yes">bearbeiten</property>
+            <property name="width_request">84</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">True</property>
+            <property name="yalign">0.56000000238418579</property>
+            <signal name="clicked" handler="on_edit_clicked"/>
+          </object>
+          <packing>
+            <property name="x">230</property>
+            <property name="y">109</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="easy">
+            <property name="label" translatable="yes">leicht</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <signal name="clicked" handler="on_easy_clicked"/>
+          </object>
+          <packing>
+            <property name="x">230</property>
+            <property name="y">17</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="secound_window">
+    <property name="title" translatable="yes">bearbeiten...</property>
+    <property name="window_position">center</property>
+    <child>
+      <object class="GtkFixed" id="fixed2">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkFixed" id="zeigen">
+            <property name="width_request">340</property>
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkRadioButton" id="show_all">
+                <property name="label" translatable="yes">alle</property>
+                <property name="width_request">58</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="draw_indicator">True</property>
+                <signal name="toggled" handler="on_show_all_toggled"/>
+              </object>
+              <packing>
+                <property name="x">24</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="show_easy">
+                <property name="label" translatable="yes">leicht</property>
+                <property name="width_request">71</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+                <property name="group">show_all</property>
+                <signal name="toggled" handler="on_show_easy_toggled"/>
+              </object>
+              <packing>
+                <property name="x">76</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="show_middle">
+                <property name="label" translatable="yes">mittel</property>
+                <property name="width_request">72</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="xalign">0.47999998927116394</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+                <property name="group">show_all</property>
+                <signal name="toggled" handler="on_show_middle_toggled"/>
+              </object>
+              <packing>
+                <property name="x">138</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="show_hard">
+                <property name="label" translatable="yes">schwer</property>
+                <property name="width_request">73</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="draw_indicator">True</property>
+                <property name="group">show_all</property>
+                <signal name="toggled" handler="on_show_hard_toggled"/>
+              </object>
+              <packing>
+                <property name="x">201</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkTextView" id="textview">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="editable">False</property>
+                <property name="cursor_visible">False</property>
+                <property name="buffer">textbuffer</property>
+              </object>
+              <packing>
+                <property name="x">27</property>
+                <property name="y">33</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="history">
+                <property name="label" translatable="yes">Verlauf</property>
+                <property name="width_request">64</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="draw_indicator">True</property>
+                <property name="group">show_all</property>
+                <signal name="toggled" handler="on_history_toggled"/>
+              </object>
+              <packing>
+                <property name="x">271</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="y">56</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="show">
+            <property name="label" translatable="yes">zeigen</property>
+            <property name="width_request">54</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="related_action">show_action</property>
+            <property name="focus_on_click">False</property>
+            <signal name="toggled" handler="on_show_toggled"/>
+          </object>
+          <packing>
+            <property name="x">29</property>
+            <property name="y">20</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="delete">
+            <property name="label" translatable="yes">löschen</property>
+            <property name="width_request">60</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="related_action">delete_action</property>
+            <property name="focus_on_click">False</property>
+            <signal name="toggled" handler="on_delete_toggled"/>
+          </object>
+          <packing>
+            <property name="x">198</property>
+            <property name="y">20</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="add">
+            <property name="label" translatable="yes">hinzufügen</property>
+            <property name="width_request">82</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="related_action">add_action</property>
+            <property name="focus_on_click">False</property>
+            <signal name="toggled" handler="on_add_toggled"/>
+          </object>
+          <packing>
+            <property name="x">99</property>
+            <property name="y">20</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="close">
+            <property name="label">zurück</property>
+            <property name="width_request">50</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="focus_on_click">False</property>
+            <signal name="clicked" handler="on_close_clicked"/>
+          </object>
+          <packing>
+            <property name="x">277</property>
+            <property name="y">20</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed" id="hinzufuegen">
+            <property name="width_request">340</property>
+            <property name="height_request">150</property>
+            <child>
+              <object class="GtkButton" id="done">
+                <property name="label">ok!</property>
+                <property name="width_request">40</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_done_clicked"/>
+              </object>
+              <packing>
+                <property name="x">215</property>
+                <property name="y">33</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="german">
+                <property name="width_request">100</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">●</property>
+              </object>
+              <packing>
+                <property name="x">75</property>
+                <property name="y">35</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="english">
+                <property name="width_request">100</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">●</property>
+              </object>
+              <packing>
+                <property name="x">75</property>
+                <property name="y">95</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="ger">
+                <property name="width_request">100</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Deutsch:</property>
+              </object>
+              <packing>
+                <property name="x">75</property>
+                <property name="y">10</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="eng">
+                <property name="width_request">100</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Englisch:</property>
+              </object>
+              <packing>
+                <property name="x">75</property>
+                <property name="y">70</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="add_result">
+                <property name="width_request">129</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="x">211</property>
+                <property name="y">95</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="x">8</property>
+            <property name="y">53</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed" id="loeschen">
+            <property name="width_request">340</property>
+            <property name="height_request">150</property>
+            <child>
+              <object class="GtkEntry" id="trash">
+                <property name="width_request">100</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">●</property>
+              </object>
+              <packing>
+                <property name="x">63</property>
+                <property name="y">40</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="del">
+                <property name="label">ok!</property>
+                <property name="width_request">50</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_del_clicked"/>
+              </object>
+              <packing>
+                <property name="x">209</property>
+                <property name="y">40</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="trash_result">
+                <property name="width_request">171</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="ypad">3</property>
+              </object>
+              <packing>
+                <property name="x">63</property>
+                <property name="y">75</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="x">8</property>
+            <property name="y">51</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkTextBuffer" id="textbuffer"/>
+  <object class="GtkRadioAction" id="delete_action">
+    <property name="draw_as_radio">True</property>
+    <property name="group">show_action</property>
+  </object>
+  <object class="GtkRadioAction" id="add_action">
+    <property name="draw_as_radio">True</property>
+    <property name="group">show_action</property>
+  </object>
+  <object class="GtkRadioAction" id="show_action">
+    <property name="draw_as_radio">True</property>
+  </object>
+</interface>
