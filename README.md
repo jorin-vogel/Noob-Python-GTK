@@ -18,4 +18,6 @@ I used simple technologies and looking back I think that I made a good choice fo
 - UI with Glade (GTK)
 - Programming with Python 2.6
 
+
+
 *somewhen around march 2010*
