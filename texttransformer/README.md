@@ -1,2 +1,2 @@
-![screenshot](texttransformer/screenshot.png "TextTransformer")
+![screenshot](/screenshot.png "TextTransformer")
 
