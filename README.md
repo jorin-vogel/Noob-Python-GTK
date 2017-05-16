@@ -1,19 +1,16 @@
-There is nothing special about this projects.
-The only reason you can find them here is that I want to be able to look back in the future and laugh about the way I were programming back then.
+These projects are just personal memories about the first programs I have written - at least of the ones that I can still find nowadays.
 
-The code inside here is only useful for you, if  you search for something to laugh about or an example how not to do it.
-
-## But anyway, enjoy it!
+Please don't use this code as a reference; unless you search for examples of how not to do things.
 
 ---------------------------------
 
 Inside this repo you can find two little projects:
 
-* with Texttransformer you can transform text-string in two funny ways
-* and Vokabeltrainer provides really basic functionality to learn a language
+* With Texttransformer you can transform strings in two fun ways
+* Vokabeltrainer provides really basic functionality to study vocabulary
   (in this case German -> English)
 
-I used simple technologies and looking back I think that I made a good choice for a noobie:
+I used simple technologies and looking back I think that I made a good choice for a starter:
 
 - UI with Glade (GTK)
 - Programming with Python 2.6
